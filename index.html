@@ -1,569 +1,277 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card</title>
+    <style>
+      * {
+        margin: 0;
+      }
 
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Card</title>
-  <style>
-    * {
-      margin: 3px;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
+      body {
+        background-color: #faebd7;
+      }
 
+      .main {
+        padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
+      }
 
+      .parent {
+        position: relative;
+        background-color: whitesmoke;
+        width: 100%;
+        height: 210px;
+        margin: 15px 15px;
+        border-radius: 3%;
+      }
 
-    .header {
-      padding: 0px 50px;
-      display: flex;
-      border: 1px solid black;
-      justify-content: space-between;
-      background-color: #efeff1;
-    }
+      @media only screen and (min-width: 782px) {
+        .parent {
+          width: calc(100% / 2 - 45px);
+        }
+      }
 
-    .shoppingcart {
-      color: #6c6c6e;
-      padding-left: 250px;
-      display: flex;
-      text-align: center;
-      justify-content: baseline;
-      align-items: center;
-    }
+      @media only screen and (min-width: 1088px) {
+        .parent {
+          width: calc(100% / 3 - 30px);
+        }
+      }
 
-    .sign {
-      color: #6c6c6e;
-      display: flex;
-      padding-right: 250px;
-      text-align: center;
-      align-items: center;
+      @media only screen and (min-width: 1161px) {
+        .parent {
+          width: calc(100% / 3 - 45px);
+        }
+      }
 
-    }
+      @media only screen and (min-width: 1161px) {
+        .parent {
+          width: calc(100% / 3 - 30px);
+        }
+      }
 
-    .lan {
-      padding: 0px 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      /* border: 1px solid black; */
-    }
+      @media only screen and (min-width: 1500px) {
+        .parent {
+          width: calc(100% / 4 - 30px);
+        }
+      }
 
-    .logo {
-      /* margin-left: 10px; */
-      padding-left: 250px;
-    }
+      b {
+        color: cadetblue;
+      }
 
-    .num {
-      font-size: large;
-      color: #6c6c6e;
-      padding-right: 250px;
-    }
+      .div1 {
+        padding: 15px 2px 0px;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: initial;
+      }
 
-    .navbar {
-      /* padding: 0px 45px; */
-      padding-left: 230px;
-      padding-right: 250px;
-      display: flex;
-      justify-content: space-evenly;
-    }
+      .div2 {
+        padding: 0px 2px;
+        display: flex;
+        justify-content: space-between;
+      }
 
-    .navbar a {
-      text-decoration: none;
-      color: #6c6c6e;
-      padding: 8px;
+      .image {
+        margin-left: 10px;
+        height: 60px;
+        border: 2px solid #008080;
+        border-radius: 50%;
+        overflow: hidden;
+      }
 
-    }
+      .image2 {
+        border: 2px solid #008080;
+        height: 40px;
+        margin-right: 10px;
+        border-radius: 10%;
+        overflow: hidden;
+      }
 
-    #navButton {
-      color: white;
-      background-color: #ff8800;
+      .text {
+        margin-top: 4px;
+        float: right;
+      }
 
-    }
+      .text2 {
+        margin-top: 4px;
+        float: left;
+      }
 
-    .headline {
-      background-color: #efeff1;
-      display: flex;
-    }
+      strong {
+        color: #008080;
+      }
 
-    .bheadline {
-      /* padding: 30px 50px; */
-      padding-left: 250px;
-      color: #6c6c6e;
-    }
+      .footer {
+        text-align: center;
+      }
 
-    .bheadline>h1 {
-      font-size: xxx-large;
-    }
+      p {
+        margin: 10px;
+      }
 
-    .bheadline>h2 {
-      font-size: x-large;
-    }
+      a {
+        color: #74797f;
+      }
+    </style>
+  </head>
 
-    .getstarted {
-      margin-top: 23px;
-      background-color: #ff8800;
-      display: inline-block;
-      padding: 8px 20px;
-      border-radius: 10px;
-
-
-    }
-
-    .getstarted>a {
-      text-decoration: none;
-      color: white;
-      font-size: large;
-    }
-
-    .text {
-      border: 1px solid #d5d5d7;
-      border-radius: 8px;
-      padding: 8px 0px 8px 15px;
-      width: 180px;
-      text-align: start;
-      margin-top: 8px;
-    }
-
-    .largetext {
-      border: 1px solid #d5d5d7;
-      border-radius: 8px;
-      padding: 8px 0px 8px 15px;
-      width: 400px;
-      height: 50px;
-    }
-
-    .contact{
-      padding-right: 210px;
-    }
-
-    .send {
-      background-color: #ff8800;
-      border-radius: 5px;
-      padding: 10px;
-      text-align: center;
-      margin-top: 15px;
-    }
-
-    .send>a {
-      color: white;
-      text-decoration: none;
-
-    }
-
-    .headline {
-      display: flex;
-      justify-content: space-between;
-      padding: 25px 90px 25px 50px;
-    }
-
-    .fname {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .awesome {
-      display: flex;
-      justify-content: space-between;
-      background-color: #209bde;
-      padding: 10px 55px 10px 55px;
-      color: white;
-      
-    }
-    .title{
-      padding-left: 250px;
-    }
-
-    .dinparent {
-      display: flex;
-      align-items: center;
-      padding-right: 250px;
-    }
-
-    .designnow {
-      padding: 10px;
-      background-color: white;
-
-    }
-
-    .designnow>a {
-      text-decoration: none;
-      color: #209bde;
-    }
-
-    .video {
-      width: 100%;
-      height: 100%;
-      /* padding-left: 250px; */
-    }
-
-    .learnmore {
-      display: flex;
-      max-width: 120px;
-      padding: 10px 20px;
-      background-color: #ff8800;
-    }
-
-    .learnmore>a {
-      text-decoration: none;
-      color: white;
-      font-size: larger;
-    }
-
-
-
-    .vidpanel {
-      padding: 10px 280px 10px 300px;
-      display: flex;
-      /* justify-content: space-evenly; */
-      background-color: #efeff1;
-      margin-top: 0;
-    }
-
-
-    .watchthis {
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      padding: 15px;
-      color: #5a5a5a;
-    }
-
-    .watchthis>h1 {
-      font-size: xxx-large;
-    }
-
-    .projects {
-      justify-content: space-between;
-      display: flex;
-      padding: 15px 50px;
-      padding-left: 270px;
-      padding-right: 270px;
-    }
-
-    .projects>div {
-      color: #5a5a5a;
-      padding: 0px 15px;
-    }
-
-    .pTitle>p {
-      margin: 10px 0px;
-      font-size: larger;
-      padding-left: 15px;
-    }
-
-    .psubtitle>p {
-      font-size: medium ;
-      padding-left: 13px;
-      padding-right: 13px;
-    }
-
-    .center {
-      display: flex;
-      justify-content: space-around;
-      padding-bottom: 5%;
-    }
-
-    .footer {
-      padding: 15px 270px 15px 270px;
-      background-color: #959595;
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 0;
-    }
-
-    .footer>div {
-      padding: 15px;
-    }
-
-    .footer p {
-      font-size: small;
-    }
-
-    .footer h1 {
-      font-size: medium;
-    }
-
-    .bfooter {
-      display: flex;
-      border: 2px solid #676767;
-      margin-top: 0;
-      padding: 15px;
-      background-color: #707070;
-      justify-content: space-around;
-      color: #9b9b9b;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="header">
-      <div class="shoppingcart">
-        <image
-          src="https://img.icons8.com/ios11/600/000000/shopping-cart.png"
-          alt="image" width="30x"></image>
-        <div class="textS">
-          <b>Shoppping Cart</b>
+  <body>
+    <div class="main">
+      <div class="parent">
+        <div class="div1">
+          <div class="image">
+            <image
+              width="60px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+          <div class="text">
+            <p><strong>Student Id : </strong>1</p>
+            <p><strong>Name : </strong>Hohn Doe</p>
+            <p><strong>Date of Birth : </strong>25-08-1998</p>
+          </div>
         </div>
+        <div class="div2">
+          <div class="text2">
+            <p><strong>Collage Name : </strong>1</p>
+            <p><strong>Collage Address : </strong>Jetal Pur</p>
+          </div>
+          <div class="image2">
+            <image
+              width="40px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+        </div>
+        <div class="footer"><a href="details.html">Show More</a></div>
       </div>
-
-      <div class="sign">
-
-        <image
-          src="https://static.thenounproject.com/png/1146335-200.png"
-          alt="image" width="30px"></image>
-        <div class="textS"><b>Sign In / Register</b></div>
-
-
+      <div class="parent">
+        <div class="div1">
+          <div class="image">
+            <image
+              width="60px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+          <div class="text">
+            <p><strong>Student Id : </strong>1</p>
+            <p><strong>Name : </strong>Hohn Doe</p>
+            <p><strong>Date of Birth : </strong>25-08-1998</p>
+          </div>
+        </div>
+        <div class="div2">
+          <div class="text2">
+            <p><strong>Collage Name : </strong>1</p>
+            <p><strong>Collage Address : </strong>Jetal Pur</p>
+          </div>
+          <div class="image2">
+            <image
+              width="40px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+        </div>
+        <div class="footer"><a href="details.html">Show More</a></div>
+      </div>
+      <div class="parent">
+        <div class="div1">
+          <div class="image">
+            <image
+              width="60px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+          <div class="text">
+            <p><strong>Student Id : </strong>1</p>
+            <p><strong>Name : </strong>Hohn Doe</p>
+            <p><strong>Date of Birth : </strong>25-08-1998</p>
+          </div>
+        </div>
+        <div class="div2">
+          <div class="text2">
+            <p><strong>Collage Name : </strong>1</p>
+            <p><strong>Collage Address : </strong>Jetal Pur</p>
+          </div>
+          <div class="image2">
+            <image
+              width="40px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+        </div>
+        <div class="footer"><a href="details.html">Show More</a></div>
+      </div>
+      <div class="parent">
+        <div class="div1">
+          <div class="image">
+            <image
+              width="60px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+          <div class="text">
+            <p><strong>Student Id : </strong>1</p>
+            <p><strong>Name : </strong>Hohn Doe</p>
+            <p><strong>Date of Birth : </strong>25-08-1998</p>
+          </div>
+        </div>
+        <div class="div2">
+          <div class="text2">
+            <p><strong>Collage Name : </strong>1</p>
+            <p><strong>Collage Address : </strong>Jetal Pur</p>
+          </div>
+          <div class="image2">
+            <image
+              width="40px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+        </div>
+        <div class="footer"><a href="details.html">Show More</a></div>
+      </div>
+      <div class="parent">
+        <div class="div1">
+          <div class="image">
+            <image
+              width="60px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+          <div class="text">
+            <p><strong>Student Id : </strong>1</p>
+            <p><strong>Name : </strong>Hohn Doe</p>
+            <p><strong>Date of Birth : </strong>25-08-1998</p>
+          </div>
+        </div>
+        <div class="div2">
+          <div class="text2">
+            <p><strong>Collage Name : </strong>1</p>
+            <p><strong>Collage Address : </strong>Jetal Pur</p>
+          </div>
+          <div class="image2">
+            <image
+              width="40px"
+              Src="https://partneraggregatoreastsa.blob.core.windows.net/publishedlogos/08631ba4-6505-4518-8291-34ba97d86c59_952cbe8d-3138-44d4-830c-490cd788f83d"
+              alt="photo"
+            ></image>
+          </div>
+        </div>
+        <div class="footer"><a href="details.html">Show More</a></div>
       </div>
     </div>
-    <div class="logoandnav">
-      <div class="lan">
-        <div class="logo">
-          <image src="https://apitutorial.dev.radixweb.net/public/uploads/files1676030625964-logo.png"></image>
-        </div>
-        <div class="num">
-          <h1>512-219-8000<h1></h1>
-        </div>
-
-      </div>
-      <div class="navbar">
-        <a href="#"><strong>Yard Signs</strong></a>
-        <a href="#"><strong>Banners</strong></a>
-        <a href="#"><strong>Accesories</strong></a>
-        <a href="#"><strong>Gallery</strong></a>
-        <a href="#"><strong>About</strong></a>
-        <a href="#"><strong>Price</strong></a>
-        <a href="#"><strong>Materias</strong></a>
-        <a href="#"><strong>FAQ</strong></a>
-        <a id="navButton" href="#">Custom Quote </a>
-
-      </div>
-    </div>
-    <div class="headline">
-      <div class="bheadline">
-        <h1>Big Headline</h1>
-        <h2>Smaller Subhead Here</h2>
-        <p style="margin-top: 15px">And this is text copied pasted over and over and over and over</br> and over and
-          over and over and over and
-          over and</br> over and over and over and over and over and over and over</p>
-        <div class="getstarted">
-          <a href="#"><strong>Get Started</strong></a>
-        </div>
-      </div>
-
-      <div class="contact">
-        <div class="fname">
-          <input type="text" class="text" placeholder="First Name :" />
-          <input type="text" class="text" placeholder="Last Name :" />
-        </div>
-        <div class="fname">
-          <input type="text" class="text" placeholder="Email :" />
-          <input type="text" class="text" placeholder="Mobile Number :" />
-        </div>
-        <div class="fname">
-          <input type="text" class="largetext" placeholder="Message" />
-        </div>
-        <div class="send">
-          <a href="#"><strong>SEND</strong></a>
-        </div>
-      </div>
-    </div>
-    <div class="awesome">
-      <div class="title">
-        <h2>
-          This is where an Awesome Title Goes
-        </h2>
-        <small>
-          And this is text copied pasted over and over and over and over and </br>over and over and over and over and
-          over
-          and over and over and over and over</br> and over and over and over and over and over and over and over and
-          </br>over
-          and over and over and over and over.
-        </small>
-      </div>
-      <div class="dinparent">
-        <div class="designnow">
-          <a href="#"><strong>Design It Now</strong></a>
-        </div>
-      </div>
-    </div>
-    <div class="vidpanel">
-      <div class="video">
-        <image src="https://apitutorial.dev.radixweb.net/public/uploads/files1676030611766-img.jpg" height="300px" width="600px">
-
-        </image>
-      </div>
-      <div class="watchthis">
-        <h1>
-          Watch This
-        </h1>
-        <h2>
-          Its's a video, yo!
-        </h2>
-        <p>And this is text copied pasted over and over and 
-          over and over and over and over and over and over
-          and over and over and over and over and over and 
-          over and over and over and over.</p>
-        <div class="learnmore">
-          <a href="#"><strong>Learn More</strong></a>
-        </div>
-      </div>
-    </div>
-    <div class="projects">
-      <div class="project">
-        <div class="pImage">
-          <image width="100%" src="http://hd.wallpaperswide.com/thumbs/the_amazing_space_ii-t2.jpg"
-            alt="image"></image>
-        </div>
-        <div class="pTitle">
-          <p>Project One</p>
-        </div>
-        <div class="psubtitle">
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus. jasto sit amet risus etiam porta sem.</p>
-        </div>
-      </div>
-      <div class="project">
-        <div class="pImage">
-          <image width="100%" src="http://hd.wallpaperswide.com/thumbs/the_amazing_space_ii-t2.jpg"
-            alt="image"></image>
-        </div>
-        <div class="pTitle">
-          <p>Project Two</p>
-        </div>
-        <div class="psubtitle">
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus. jasto sit amet risus etiam porta sem.</p>
-        </div>
-      </div>
-      <div class="project">
-        <div class="pImage">
-          <image width="100%" src="http://hd.wallpaperswide.com/thumbs/the_amazing_space_ii-t2.jpg"
-            alt="image"></image>
-        </div>
-        <div class="pTitle">
-          <p>Project Three</p>
-        </div>
-        <div class="psubtitle">
-          <p>Donec id elit non mi porta gravida at egat metus. Fusce dapibus. jasto sit amet risus etiam porta sem.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="center">
-      <div class="learnmore">
-        <a href="#"><strong>Learn More</strong></a>
-      </div>
-
-    </div>
-    <div class="footer">
-      <div class="col1">
-        <div class="help">
-          <h1>Help</h1>
-          <p>Contact us</p>
-          <p>F.A.Q</p>
-          <p>Sitemap</p>
-          <p>Pricing</p>
-          <p>Redeem promo</p><br>
-        </div>
-        <div class="account">
-          <h1>
-            Account
-          </h1>
-          <p>My Accout</p>
-        </div>
-      </div>
-      <div class="col2">
-        <h1>
-          Products
-        </h1>
-        <p>
-          Yard Signs
-        </p>
-        <p>Real Estate Signs</p>
-        <p>Vinyl Banners</p>
-        <p>Car Magnetics</p>
-        <p>Banner Stands</p>
-        <p>Accessories</p>
-        <p>Design Services</p>
-      </div>
-      <div class="col3">
-        <div class="company">
-          <h1>
-            Company
-          </h1>
-          <p>
-            Overview
-          </p>
-          <p>
-            Press Room
-          </p>
-          <p>Careers</p>
-          <p>Reviews</p><br>
-        </div>
-        <div class="Programs">
-          <h1>Programs</h1>
-          <p>
-            Affiliate
-          </p>
-        </div>
-      </div>
-      <div class="col1">
-        <div class="help">
-          <h1>Help</h1>
-          <p>Contact us</p>
-          <p>F.A.Q</p>
-          <p>Sitemap</p>
-          <p>Pricing</p>
-          <p>Redeem promo</p><br>
-        </div>
-        <div class="account">
-          <h1>
-            Account
-          </h1>
-          <p>My Accout</p>
-        </div>
-      </div>
-      <div class="col2">
-        <h1>
-          Products
-        </h1>
-        <p>
-          Yard Signs
-        </p>
-        <p>Real Estate Signs</p>
-        <p>Vinyl Banners</p>
-        <p>Car Magnetics</p>
-        <p>Banner Stands</p>
-        <p>Accessories</p>
-        <p>Design Services</p>
-      </div>
-      <div class="col3">
-        <div class="company">
-          <h1>
-            Company
-          </h1>
-          <p>
-            Overview
-          </p>
-          <p>
-            Press Room
-          </p>
-          <p>Careers</p>
-          <p>Reviews</p><br>
-        </div>
-        <div class="Programs">
-          <h1>Programs</h1>
-          <p>
-            Affiliate
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="bfooter">
-      <p>Copyright 2016 SignDepotATX.com @Vishal Vadodariya</p>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
