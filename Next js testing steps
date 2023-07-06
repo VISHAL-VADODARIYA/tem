@@ -1,0 +1,47 @@
+Next test steps 
+
+=> run this command in existing next project
+(
+npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+)
+
+=>create jest.config.js file in root directory and paste this code
+(
+const nextJest = require("next/jest");
+const createJestConfig = nextJest({
+  dir: "./",
+});
+const customJestConfig = {
+  moduleDirectories: ["node_modules", "<rootDir>/"],
+  testEnvironment: "jest-environment-jsdom",
+};
+module.exports = createJestConfig(customJestConfig);
+)
+
+=> check in the package.json file  { "test": "jest --watch" } available in scripts
+If not then write this and install node module again.
+
+=> if you not found this line (."@testing-library/jest-dom": "^5.16.5", )in package.json file  in ”devDependencies"
+ then install with npm install
+
+=> import this package in every test file 
+(
+import "@testing-library/jest-dom";
+) 
+
+
+NOTE : create all the test file in ( __tests__ ) folder which is available on root directory of project if its not there then create folder with this name
+
+Test file example:-
+
+import Home from "@/app/page";
+import "@testing-library/jest-dom";
+import { screen, render } from "@testing-library/react";
+
+test("button availability", () => {
+  render(<Home />);
+  const button = screen.getByText('hello')
+  expect(button).toBeInTheDocument();
+});
+
+
